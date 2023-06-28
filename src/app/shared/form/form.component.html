@@ -1,0 +1,53 @@
+<div class="wrapper region flow">
+  <h1>Usuarios Admitidos</h1>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="prepopulateForm()"
+    [disabled]="preloaded || orderForm.controls.length > 0"
+  >
+    Preload form
+  </button>
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="orders-form">
+    <div formArrayName="orders">
+      <div
+        *ngFor="let order of orderForm.controls; let i = index"
+        [formGroupName]="i"
+        class="group"
+      >
+        <mat-form-field>
+          <mat-label>Orden en que fue creado</mat-label>
+          <input matInput placeholder="orden" formControlName="order" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Role que ejerce</mat-label>
+          <input matInput placeholder="role" formControlName="role" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Empleado que autoriza</mat-label>
+          <input
+            matInput
+            placeholder="authEmployee"
+            formControlName="authEmployee"
+          />
+        </mat-form-field>
+
+        <button
+          *ngIf="i !== 0; else elseBlock"
+          mat-button
+          (click)="deleteRow(i)"
+          class="delete-column"
+        >
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+        <ng-template #elseBlock>
+          <div class="delete-column">&nbsp;</div>
+        </ng-template>
+      </div>
+    </div>
+  </form>
+
+  <button mat-button (click)="addRow()">Añadir</button>
+</div>

@@ -1,0 +1,16 @@
+// .orders-form mat-form-field + mat-form-field {
+//   margin-left: 8px;
+// }
+
+.group {
+
+  > *:not(.delete-column) {
+    flex: 1;
+  }
+
+  & .delete-column {
+    width: 64px;
+  }
+}
+
+
