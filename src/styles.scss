@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// Composition classes
+.wrapper {
+  width: 90vw;
+  width: clamp(16rem, 90vw, 70rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+.region {
+  padding-block: var(--region-space, 1.5rem);
+}
+
+.group {
+  display: flex;
+  gap: var(--space, 1rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
