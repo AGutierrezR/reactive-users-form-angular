@@ -10,7 +10,7 @@
     Preload form
   </button>
 
-  <form [formGroup]="form" (ngSubmit)="submitForm()" class="orders-form">
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="orders-form reel">
     <div formArrayName="orders">
       <div
         *ngFor="let order of orderForm.controls; let i = index"

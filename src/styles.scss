@@ -26,6 +26,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
 }
 
+.reel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.reel > * {
+  flex: 0 0 var(--item-width, 6.25rem);
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);
 }
