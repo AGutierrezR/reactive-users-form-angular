@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gh-pages": "gh-pages -d dist/angular-reactive-form-app -b gh-page"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@angular/cli": "~16.1.1",
     "@angular/compiler-cli": "^16.1.0",
     "@types/jasmine": "~4.3.0",
+    "gh-pages": "^5.0.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
