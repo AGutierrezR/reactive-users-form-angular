@@ -6,6 +6,7 @@ import {
   FormArray,
   FormControl,
 } from '@angular/forms';
+import { mockData } from 'src/app/shared/form/mockData';
 
 @Component({
   selector: 'app-form',
@@ -25,9 +26,7 @@ export class FormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      orders: this.fb.array([]),
-    });
+    this.initForm();
   }
 
   addRow() {
@@ -54,28 +53,9 @@ export class FormComponent implements OnInit {
   }
 
   prepopulateForm() {
-    const mockData = [
-      {
-        order: 1,
-        role: 'Administración General del Sistema - 1',
-        authEmployee: 'John Doe',
-      },
-      {
-        order: 2,
-        role: 'Administración General del Sistema - 1',
-        authEmployee: 'John Doe',
-      },
-      {
-        order: 3,
-        role: 'Administración General del Sistema - 1',
-        authEmployee: 'John Doe',
-      },
-      {
-        order: 4,
-        role: 'Administración General del Sistema - 1',
-        authEmployee: 'John Doe',
-      },
-    ];
+    if (this.preloaded) {
+      return;
+    }
 
     for (const data of mockData) {
       this.orderForm.push(
@@ -92,5 +72,11 @@ export class FormComponent implements OnInit {
     }
 
     this.preloaded = true;
+  }
+
+  private initForm(): void {
+    this.form = this.fb.group({
+      orders: this.fb.array([]),
+    });
   }
 }
